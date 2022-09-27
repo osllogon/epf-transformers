@@ -1,0 +1,10 @@
+# files
+*.zip
+
+# folders
+/runs/
+/data/
+/models/
+/epftoolbox/
+.vscode/
+__pycache__/
