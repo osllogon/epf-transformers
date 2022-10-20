@@ -1,0 +1,392 @@
+@inproceedings{adebayoSanityChecksSaliency2018,
+  title = {Sanity {{Checks}} for {{Saliency Maps}}},
+  booktitle = {Advances in {{Neural Information Processing Systems}}},
+  author = {Adebayo, Julius and Gilmer, Justin and Muelly, Michael and Goodfellow, Ian and Hardt, Moritz and Kim, Been},
+  year = {2018},
+  volume = {31},
+  publisher = {{Curran Associates, Inc.}},
+  abstract = {Saliency methods have emerged as a popular tool to highlight features in an input deemed relevant for the prediction of a learned model. Several saliency methods have been proposed, often guided by visual appeal on image data. In this work, we propose an actionable methodology to evaluate what kinds of explanations a given method can and cannot provide. We find that reliance, solely, on visual assessment can be misleading. Through extensive experiments we show that some existing saliency methods are independent both of the model and of the data generating process. Consequently, methods that fail the proposed tests are inadequate for tasks that are sensitive to either data or model, such as, finding outliers in the data, explaining the relationship between inputs and outputs that the model learned, and debugging the model. We interpret our findings through an analogy with edge detection in images, a technique that requires neither training data nor model. Theory in the case of a linear model and a single-layer convolutional neural network supports our experimental findings.},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/W2UHPF67/Adebayo et al. - 2018 - Sanity Checks for Saliency Maps.pdf}
+}
+
+@inproceedings{anconaBetterUnderstandingGradientbased2018,
+  title = {Towards Better Understanding of Gradient-Based Attribution Methods for {{Deep Neural Networks}}},
+  booktitle = {6th {{International Conference}} on {{Learning Representations}}, {{ICLR}} 2018, {{Vancouver}}, {{BC}}, {{Canada}}, {{April}} 30 - {{May}} 3, 2018, {{Conference Track Proceedings}}},
+  author = {Ancona, Marco and Ceolini, Enea and {\"O}ztireli, Cengiz and Gross, Markus},
+  year = {2018},
+  publisher = {{OpenReview.net}}
+}
+
+@misc{bahdanauNeuralMachineTranslation2016,
+  title = {Neural {{Machine Translation}} by {{Jointly Learning}} to {{Align}} and {{Translate}}},
+  author = {Bahdanau, Dzmitry and Cho, Kyunghyun and Bengio, Yoshua},
+  year = {2016},
+  month = may,
+  number = {arXiv:1409.0473},
+  eprint = {1409.0473},
+  eprinttype = {arxiv},
+  primaryclass = {cs, stat},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.1409.0473},
+  abstract = {Neural machine translation is a recently proposed approach to machine translation. Unlike the traditional statistical machine translation, the neural machine translation aims at building a single neural network that can be jointly tuned to maximize the translation performance. The models proposed recently for neural machine translation often belong to a family of encoder-decoders and consists of an encoder that encodes a source sentence into a fixed-length vector from which a decoder generates a translation. In this paper, we conjecture that the use of a fixed-length vector is a bottleneck in improving the performance of this basic encoder-decoder architecture, and propose to extend this by allowing a model to automatically (soft-)search for parts of a source sentence that are relevant to predicting a target word, without having to form these parts as a hard segment explicitly. With this new approach, we achieve a translation performance comparable to the existing state-of-the-art phrase-based system on the task of English-to-French translation. Furthermore, qualitative analysis reveals that the (soft-)alignments found by the model agree well with our intuition.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Computation and Language,Computer Science - Machine Learning,Computer Science - Neural and Evolutionary Computing,Statistics - Machine Learning},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/MXLHNC5S/Bahdanau et al. - 2016 - Neural Machine Translation by Jointly Learning to .pdf;/home/oscar/snap/zotero-snap/common/Zotero/storage/U9IZHH6S/1409.html}
+}
+
+@article{bengioLearningLongtermDependencies1994,
+  title = {Learning Long-Term Dependencies with Gradient Descent Is Difficult},
+  author = {Bengio, Y. and Simard, P. and Frasconi, P.},
+  year = {1994},
+  month = mar,
+  journal = {IEEE Transactions on Neural Networks},
+  volume = {5},
+  number = {2},
+  pages = {157--166},
+  issn = {1941-0093},
+  doi = {10.1109/72.279181},
+  abstract = {Recurrent neural networks can be used to map input sequences to output sequences, such as for recognition, production or prediction problems. However, practical difficulties have been reported in training recurrent neural networks to perform tasks in which the temporal contingencies present in the input/output sequences span long intervals. We show why gradient based learning algorithms face an increasingly difficult problem as the duration of the dependencies to be captured increases. These results expose a trade-off between efficient learning by gradient descent and latching on information for long periods. Based on an understanding of this problem, alternatives to standard gradient descent are considered.{$<>$}},
+  keywords = {Computer networks,Cost function,Delay effects,Discrete transforms,Displays,Intelligent networks,Neural networks,Neurofeedback,Production,Recurrent neural networks},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/93NU5M29/279181.html}
+}
+
+@misc{brownLanguageModelsAre2020,
+  title = {Language {{Models}} Are {{Few-Shot Learners}}},
+  author = {Brown, Tom B. and Mann, Benjamin and Ryder, Nick and Subbiah, Melanie and Kaplan, Jared and Dhariwal, Prafulla and Neelakantan, Arvind and Shyam, Pranav and Sastry, Girish and Askell, Amanda and Agarwal, Sandhini and {Herbert-Voss}, Ariel and Krueger, Gretchen and Henighan, Tom and Child, Rewon and Ramesh, Aditya and Ziegler, Daniel M. and Wu, Jeffrey and Winter, Clemens and Hesse, Christopher and Chen, Mark and Sigler, Eric and Litwin, Mateusz and Gray, Scott and Chess, Benjamin and Clark, Jack and Berner, Christopher and McCandlish, Sam and Radford, Alec and Sutskever, Ilya and Amodei, Dario},
+  year = {2020},
+  month = jul,
+  number = {arXiv:2005.14165},
+  eprint = {2005.14165},
+  eprinttype = {arxiv},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.2005.14165},
+  abstract = {Recent work has demonstrated substantial gains on many NLP tasks and benchmarks by pre-training on a large corpus of text followed by fine-tuning on a specific task. While typically task-agnostic in architecture, this method still requires task-specific fine-tuning datasets of thousands or tens of thousands of examples. By contrast, humans can generally perform a new language task from only a few examples or from simple instructions - something which current NLP systems still largely struggle to do. Here we show that scaling up language models greatly improves task-agnostic, few-shot performance, sometimes even reaching competitiveness with prior state-of-the-art fine-tuning approaches. Specifically, we train GPT-3, an autoregressive language model with 175 billion parameters, 10x more than any previous non-sparse language model, and test its performance in the few-shot setting. For all tasks, GPT-3 is applied without any gradient updates or fine-tuning, with tasks and few-shot demonstrations specified purely via text interaction with the model. GPT-3 achieves strong performance on many NLP datasets, including translation, question-answering, and cloze tasks, as well as several tasks that require on-the-fly reasoning or domain adaptation, such as unscrambling words, using a novel word in a sentence, or performing 3-digit arithmetic. At the same time, we also identify some datasets where GPT-3's few-shot learning still struggles, as well as some datasets where GPT-3 faces methodological issues related to training on large web corpora. Finally, we find that GPT-3 can generate samples of news articles which human evaluators have difficulty distinguishing from articles written by humans. We discuss broader societal impacts of this finding and of GPT-3 in general.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Computation and Language},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/MXHK2HND/Brown et al. - 2020 - Language Models are Few-Shot Learners.pdf;/home/oscar/snap/zotero-snap/common/Zotero/storage/YTQXQR69/2005.html}
+}
+
+@misc{chenEvaluatingLargeLanguage2021,
+  title = {Evaluating {{Large Language Models Trained}} on {{Code}}},
+  author = {Chen, Mark and Tworek, Jerry and Jun, Heewoo and Yuan, Qiming and Pinto, Henrique Ponde de Oliveira and Kaplan, Jared and Edwards, Harri and Burda, Yuri and Joseph, Nicholas and Brockman, Greg and Ray, Alex and Puri, Raul and Krueger, Gretchen and Petrov, Michael and Khlaaf, Heidy and Sastry, Girish and Mishkin, Pamela and Chan, Brooke and Gray, Scott and Ryder, Nick and Pavlov, Mikhail and Power, Alethea and Kaiser, Lukasz and Bavarian, Mohammad and Winter, Clemens and Tillet, Philippe and Such, Felipe Petroski and Cummings, Dave and Plappert, Matthias and Chantzis, Fotios and Barnes, Elizabeth and {Herbert-Voss}, Ariel and Guss, William Hebgen and Nichol, Alex and Paino, Alex and Tezak, Nikolas and Tang, Jie and Babuschkin, Igor and Balaji, Suchir and Jain, Shantanu and Saunders, William and Hesse, Christopher and Carr, Andrew N. and Leike, Jan and Achiam, Josh and Misra, Vedant and Morikawa, Evan and Radford, Alec and Knight, Matthew and Brundage, Miles and Murati, Mira and Mayer, Katie and Welinder, Peter and McGrew, Bob and Amodei, Dario and McCandlish, Sam and Sutskever, Ilya and Zaremba, Wojciech},
+  year = {2021},
+  month = jul,
+  number = {arXiv:2107.03374},
+  eprint = {2107.03374},
+  eprinttype = {arxiv},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.2107.03374},
+  abstract = {We introduce Codex, a GPT language model fine-tuned on publicly available code from GitHub, and study its Python code-writing capabilities. A distinct production version of Codex powers GitHub Copilot. On HumanEval, a new evaluation set we release to measure functional correctness for synthesizing programs from docstrings, our model solves 28.8\% of the problems, while GPT-3 solves 0\% and GPT-J solves 11.4\%. Furthermore, we find that repeated sampling from the model is a surprisingly effective strategy for producing working solutions to difficult prompts. Using this method, we solve 70.2\% of our problems with 100 samples per problem. Careful investigation of our model reveals its limitations, including difficulty with docstrings describing long chains of operations and with binding operations to variables. Finally, we discuss the potential broader impacts of deploying powerful code generation technologies, covering safety, security, and economics.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Machine Learning},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/P8B9X46K/Chen et al. - 2021 - Evaluating Large Language Models Trained on Code.pdf;/home/oscar/snap/zotero-snap/common/Zotero/storage/7KTH3QM5/2107.html}
+}
+
+@misc{CIFAR10CIFAR100Datasets,
+  title = {{{CIFAR-10}} and {{CIFAR-100}} Datasets},
+  howpublished = {https://www.cs.toronto.edu/\textasciitilde kriz/cifar.html},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/DJS7IAAD/cifar.html}
+}
+
+@misc{devlinBERTPretrainingDeep2019,
+  title = {{{BERT}}: {{Pre-training}} of {{Deep Bidirectional Transformers}} for {{Language Understanding}}},
+  shorttitle = {{{BERT}}},
+  author = {Devlin, Jacob and Chang, Ming-Wei and Lee, Kenton and Toutanova, Kristina},
+  year = {2019},
+  month = may,
+  number = {arXiv:1810.04805},
+  eprint = {1810.04805},
+  eprinttype = {arxiv},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.1810.04805},
+  abstract = {We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models, BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial task-specific architecture modifications. BERT is conceptually simple and empirically powerful. It obtains new state-of-the-art results on eleven natural language processing tasks, including pushing the GLUE score to 80.5\% (7.7\% point absolute improvement), MultiNLI accuracy to 86.7\% (4.6\% absolute improvement), SQuAD v1.1 question answering Test F1 to 93.2 (1.5 point absolute improvement) and SQuAD v2.0 Test F1 to 83.1 (5.1 point absolute improvement).},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Computation and Language},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/8T2C9X2Q/Devlin et al. - 2019 - BERT Pre-training of Deep Bidirectional Transform.pdf;/home/oscar/snap/zotero-snap/common/Zotero/storage/UQ4WXLQZ/1810.html}
+}
+
+@inproceedings{dosovitskiyImageWorth16x162022,
+  title = {An {{Image}} Is {{Worth}} 16x16 {{Words}}: {{Transformers}} for {{Image Recognition}} at {{Scale}}},
+  shorttitle = {An {{Image}} Is {{Worth}} 16x16 {{Words}}},
+  booktitle = {International {{Conference}} on {{Learning Representations}}},
+  author = {Dosovitskiy, Alexey and Beyer, Lucas and Kolesnikov, Alexander and Weissenborn, Dirk and Zhai, Xiaohua and Unterthiner, Thomas and Dehghani, Mostafa and Minderer, Matthias and Heigold, Georg and Gelly, Sylvain and Uszkoreit, Jakob and Houlsby, Neil},
+  year = {2022},
+  month = mar,
+  abstract = {While the Transformer architecture has become the de-facto standard for natural language processing tasks, its applications to computer vision remain limited. In vision, attention is either applied in conjunction with convolutional networks, or used to replace certain components of convolutional networks while keeping their overall structure in place. We show that this reliance on CNNs is not necessary and a pure transformer applied directly to sequences of image patches can perform very well on image classification tasks. When pre-trained on large amounts of data and transferred to multiple mid-sized or small image recognition benchmarks (ImageNet, CIFAR-100, VTAB, etc.), Vision Transformer (ViT) attains excellent results compared to state-of-the-art convolutional networks while requiring substantially fewer computational resources to train.},
+  langid = {english},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/2BM3DUJE/Dosovitskiy et al. - 2022 - An Image is Worth 16x16 Words Transformers for Im.pdf}
+}
+
+@inproceedings{heDeepResidualLearning2016,
+  title = {Deep {{Residual Learning}} for {{Image Recognition}}},
+  booktitle = {2016 {{IEEE Conference}} on {{Computer Vision}} and {{Pattern Recognition}} ({{CVPR}})},
+  author = {He, Kaiming and Zhang, Xiangyu and Ren, Shaoqing and Sun, Jian},
+  year = {2016},
+  month = jun,
+  pages = {770--778},
+  issn = {1063-6919},
+  doi = {10.1109/CVPR.2016.90},
+  abstract = {Deeper neural networks are more difficult to train. We present a residual learning framework to ease the training of networks that are substantially deeper than those used previously. We explicitly reformulate the layers as learning residual functions with reference to the layer inputs, instead of learning unreferenced functions. We provide comprehensive empirical evidence showing that these residual networks are easier to optimize, and can gain accuracy from considerably increased depth. On the ImageNet dataset we evaluate residual nets with a depth of up to 152 layers - 8\texttimes{} deeper than VGG nets [40] but still having lower complexity. An ensemble of these residual nets achieves 3.57\% error on the ImageNet test set. This result won the 1st place on the ILSVRC 2015 classification task. We also present analysis on CIFAR-10 with 100 and 1000 layers. The depth of representations is of central importance for many visual recognition tasks. Solely due to our extremely deep representations, we obtain a 28\% relative improvement on the COCO object detection dataset. Deep residual nets are foundations of our submissions to ILSVRC \& COCO 2015 competitions1, where we also won the 1st places on the tasks of ImageNet detection, ImageNet localization, COCO detection, and COCO segmentation.},
+  keywords = {Complexity theory,Degradation,Image recognition,Image segmentation,Neural networks,Training,Visualization},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/BNJT275L/He et al. - 2016 - Deep Residual Learning for Image Recognition.pdf;/home/oscar/snap/zotero-snap/common/Zotero/storage/Z84NSPSX/7780459.html}
+}
+
+@article{hochreiterLongShortTermMemory1997,
+  title = {Long {{Short-Term Memory}}},
+  author = {Hochreiter, Sepp and Schmidhuber, J{\"u}rgen},
+  year = {1997},
+  month = nov,
+  journal = {Neural Computation},
+  volume = {9},
+  number = {8},
+  pages = {1735--1780},
+  issn = {0899-7667},
+  doi = {10.1162/neco.1997.9.8.1735},
+  abstract = {Learning to store information over extended time intervals by recurrent backpropagation takes a very long time, mostly because of insufficient, decaying error backflow. We briefly review Hochreiter's (1991) analysis of this problem, then address it by introducing a novel, efficient, gradient based method called long short-term memory (LSTM). Truncating the gradient where this does not do harm, LSTM can learn to bridge minimal time lags in excess of 1000 discrete-time steps by enforcing constant error flow through constant error carousels within special units. Multiplicative gate units learn to open and close access to the constant error flow. LSTM is local in space and time; its computational complexity per time step and weight is O. 1. Our experiments with artificial data involve local, distributed, real-valued, and noisy pattern representations. In comparisons with real-time recurrent learning, back propagation through time, recurrent cascade correlation, Elman nets, and neural sequence chunking, LSTM leads to many more successful runs, and learns much faster. LSTM also solves complex, artificial long-time-lag tasks that have never been solved by previous recurrent network algorithms.},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/7LEWKIJT/Long-Short-Term-Memory.html}
+}
+
+@inproceedings{hookerBenchmarkInterpretabilityMethods2019,
+  title = {A {{Benchmark}} for {{Interpretability Methods}} in {{Deep Neural Networks}}},
+  booktitle = {Advances in {{Neural Information Processing Systems}}},
+  author = {Hooker, Sara and Erhan, Dumitru and Kindermans, Pieter-Jan and Kim, Been},
+  year = {2019},
+  volume = {32},
+  publisher = {{Curran Associates, Inc.}},
+  abstract = {We propose an empirical measure of the approximate accuracy of feature importance estimates in deep neural networks. Our results across several large-scale image classification datasets show that many popular interpretability methods produce estimates of feature importance that are not better than a random designation of feature importance. Only certain ensemble based approaches---VarGrad and SmoothGrad-Squared---outperform such a random assignment of importance. The manner of ensembling remains critical, we show that some approaches do no better then the underlying method but carry a far higher computational burden.},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/8FPGGC2Q/Hooker et al. - 2019 - A Benchmark for Interpretability Methods in Deep N.pdf}
+}
+
+@misc{ImageNet,
+  title = {{{ImageNet}}},
+  howpublished = {https://www.image-net.org/},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/LE2EUFM7/www.image-net.org.html}
+}
+
+@misc{Imagenette2022,
+  title = {Imagenette},
+  year = {2022},
+  month = sep,
+  abstract = {A smaller subset of 10 easily classified classes from Imagenet, and a little more French},
+  copyright = {Apache-2.0},
+  howpublished = {fast.ai}
+}
+
+@inproceedings{krizhevskyImageNetClassificationDeep2012,
+  title = {{{ImageNet Classification}} with {{Deep Convolutional Neural Networks}}},
+  booktitle = {Advances in {{Neural Information Processing Systems}}},
+  author = {Krizhevsky, Alex and Sutskever, Ilya and Hinton, Geoffrey E},
+  year = {2012},
+  volume = {25},
+  publisher = {{Curran Associates, Inc.}},
+  abstract = {We trained a large, deep convolutional neural network to classify the 1.3 million high-resolution images in the LSVRC-2010 ImageNet training set into the 1000 different classes. On the test data, we achieved top-1 and top-5 error rates of 39.7\textbackslash\% and 18.9\textbackslash\% which is considerably better than the previous state-of-the-art results. The neural network, which has 60 million parameters and 500,000 neurons, consists of five convolutional layers, some of which are followed by max-pooling layers, and two globally connected layers with a final 1000-way softmax. To make training faster, we used non-saturating neurons and a very efficient GPU implementation of convolutional nets. To reduce overfitting in the globally connected layers we employed a new regularization method that proved to be very effective.},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/T7FCIMVM/Krizhevsky et al. - 2012 - ImageNet Classification with Deep Convolutional Ne.pdf}
+}
+
+@article{lagoForecastingDayaheadElectricity2021,
+  title = {Forecasting Day-Ahead Electricity Prices: {{A}} Review of State-of-the-Art Algorithms, Best Practices and an Open-Access Benchmark},
+  shorttitle = {Forecasting Day-Ahead Electricity Prices},
+  author = {Lago, Jesus and Marcjasz, Grzegorz and De Schutter, Bart and Weron, Rafa{\l}},
+  year = {2021},
+  month = jul,
+  journal = {Applied Energy},
+  volume = {293},
+  pages = {116983},
+  issn = {0306-2619},
+  doi = {10.1016/j.apenergy.2021.116983},
+  abstract = {While the field of electricity price forecasting has benefited from plenty of contributions in the last two decades, it arguably lacks a rigorous approach to evaluating new predictive algorithms. The latter are often compared using unique, not publicly available datasets and across too short and limited to one market test samples. The proposed new methods are rarely benchmarked against well established and well performing simpler models, the accuracy metrics are sometimes inadequate and testing the significance of differences in predictive performance is seldom conducted. Consequently, it is not clear which methods perform well nor what are the best practices when forecasting electricity prices. In this paper, we tackle these issues by comparing state-of-the-art statistical and deep learning methods across multiple years and markets, and by putting forward a set of best practices. In addition, we make available the considered datasets, forecasts of the state-of-the-art models, and a specifically designed python toolbox, so that new algorithms can be rigorously evaluated in future studies.},
+  langid = {english},
+  keywords = {Best practices,Deep learning,Electricity price forecasting,Forecast evaluation,Open-access benchmark,Regression model},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/4EHRH4WT/Lago et al. - 2021 - Forecasting day-ahead electricity prices A review.pdf;/home/oscar/snap/zotero-snap/common/Zotero/storage/JZDKJBG4/S0306261921004529.html}
+}
+
+@article{lecunConvolutionalNetworksImages,
+  title = {Convolutional {{Networks}} for {{Images}}, {{Speech}}, and {{Time-Series}}},
+  author = {LeCun, Yann and Bengio, Yoshua and Laboratories, T Bell},
+  pages = {14},
+  langid = {english},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/AYXU5SUC/LeCun et al. - Convolutional Networks for Images, Speech, and Tim.pdf}
+}
+
+@misc{MNISTHandwrittenDigit,
+  title = {{{MNIST}} Handwritten Digit Database, {{Yann LeCun}}, {{Corinna Cortes}} and {{Chris Burges}}},
+  howpublished = {http://yann.lecun.com/exdb/mnist/},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/WYM2DS42/mnist.html}
+}
+
+@article{petsiukRISERandomizedInput,
+  title = {{{RISE}}: {{Randomized Input Sampling}} for {{Explanation}} of {{Black-box Models}}},
+  author = {Petsiuk, Vitali},
+  pages = {13},
+  abstract = {Deep neural networks are being used increasingly to automate data analysis and decision making, yet their decision-making process is largely unclear and is difficult to explain to the end users. In this paper, we address the problem of Explainable AI for deep neural networks that take images as input and output a class probability. We propose an approach called RISE that generates an importance map indicating how salient each pixel is for the model's prediction. In contrast to white-box approaches that estimate pixel importance using gradients or other internal network state, RISE works on blackbox models. It estimates importance empirically by probing the model with randomly masked versions of the input image and obtaining the corresponding outputs. We compare our approach to state-of-the-art importance extraction methods using both an automatic deletion/insertion metric and a pointing metric based on human-annotated object segments. Extensive experiments on several benchmark datasets show that our approach matches or exceeds the performance of other methods, including white-box approaches.},
+  langid = {english},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/XDI39SEY/Petsiuk - RISE Randomized Input Sampling for Explanation of.pdf}
+}
+
+@incollection{rumelhartLearningInternalRepresentations1987,
+  title = {Learning {{Internal Representations}} by {{Error Propagation}}},
+  booktitle = {Parallel {{Distributed Processing}}: {{Explorations}} in the {{Microstructure}} of {{Cognition}}: {{Foundations}}},
+  author = {Rumelhart, David E. and McClelland, James L.},
+  year = {1987},
+  pages = {318--362},
+  publisher = {{MIT Press}},
+  abstract = {This chapter contains sections titled: The Problem, The Generalized Delta Rule, Simulation Results, Some Further Generalizations, Conclusion},
+  isbn = {978-0-262-29140-8},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/TBMJBLPZ/6302929.html}
+}
+
+@misc{shrikumarNotJustBlack2017,
+  title = {Not {{Just}} a {{Black Box}}: {{Learning Important Features Through Propagating Activation Differences}}},
+  shorttitle = {Not {{Just}} a {{Black Box}}},
+  author = {Shrikumar, Avanti and Greenside, Peyton and Shcherbina, Anna and Kundaje, Anshul},
+  year = {2017},
+  month = apr,
+  number = {arXiv:1605.01713},
+  eprint = {1605.01713},
+  eprinttype = {arxiv},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.1605.01713},
+  abstract = {Note: This paper describes an older version of DeepLIFT. See https://arxiv.org/abs/1704.02685 for the newer version. Original abstract follows: The purported "black box" nature of neural networks is a barrier to adoption in applications where interpretability is essential. Here we present DeepLIFT (Learning Important FeaTures), an efficient and effective method for computing importance scores in a neural network. DeepLIFT compares the activation of each neuron to its 'reference activation' and assigns contribution scores according to the difference. We apply DeepLIFT to models trained on natural images and genomic data, and show significant advantages over gradient-based methods.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Computer Vision and Pattern Recognition,Computer Science - Machine Learning,Computer Science - Neural and Evolutionary Computing},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/G95V459D/Shrikumar et al. - 2017 - Not Just a Black Box Learning Important Features .pdf;/home/oscar/snap/zotero-snap/common/Zotero/storage/IDVY7IET/1605.html}
+}
+
+@misc{simonyanDeepConvolutionalNetworks2014a,
+  title = {Deep {{Inside Convolutional Networks}}: {{Visualising Image Classification Models}} and {{Saliency Maps}}},
+  shorttitle = {Deep {{Inside Convolutional Networks}}},
+  author = {Simonyan, Karen and Vedaldi, Andrea and Zisserman, Andrew},
+  year = {2014},
+  month = apr,
+  number = {arXiv:1312.6034},
+  eprint = {1312.6034},
+  eprinttype = {arxiv},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.1312.6034},
+  abstract = {This paper addresses the visualisation of image classification models, learnt using deep Convolutional Networks (ConvNets). We consider two visualisation techniques, based on computing the gradient of the class score with respect to the input image. The first one generates an image, which maximises the class score [Erhan et al., 2009], thus visualising the notion of the class, captured by a ConvNet. The second technique computes a class saliency map, specific to a given image and class. We show that such maps can be employed for weakly supervised object segmentation using classification ConvNets. Finally, we establish the connection between the gradient-based ConvNet visualisation methods and deconvolutional networks [Zeiler et al., 2013].},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Computer Vision and Pattern Recognition},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/E3DSJCPC/Simonyan et al. - 2014 - Deep Inside Convolutional Networks Visualising Im.pdf;/home/oscar/snap/zotero-snap/common/Zotero/storage/SQA9GEEP/1312.html}
+}
+
+@article{singhThinkPositiveInterpretable2022,
+  title = {Think Positive: {{An}} Interpretable Neural Network for Image Recognition},
+  shorttitle = {Think Positive},
+  author = {Singh, Gurmail},
+  year = {2022},
+  month = jul,
+  journal = {Neural Networks},
+  volume = {151},
+  pages = {178--189},
+  issn = {0893-6080},
+  doi = {10.1016/j.neunet.2022.03.034},
+  abstract = {The COVID-19 pandemic is an ongoing pandemic and is placing additional burden on healthcare systems around the world. Timely and effectively detecting the virus can help to reduce the spread of the disease. Although, RT-PCR is still a gold standard for COVID-19 testing, deep learning models to identify the virus from medical images can also be helpful in certain circumstances. In particular, in situations when patients undergo routine X-rays and/or CT-scans tests but within a few days of such tests they develop respiratory complications. Deep learning models can also be used for pre-screening prior to RT-PCR testing. However, the transparency/interpretability of the reasoning process of predictions made by such deep learning models is essential. In this paper, we propose an interpretable deep learning model that uses positive reasoning process to make predictions. We trained and tested our model over the dataset of chest CT-scan images of COVID-19 patients, normal people and pneumonia patients. Our model gives the accuracy, precision, recall and F-score equal to 99.48\%, 0.99, 0.99 and 0.99, respectively.},
+  langid = {english},
+  keywords = {COVID-19,CT-scan,Interpretable,Pneumonia,Prototypes},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/6AYGBYPE/Singh - 2022 - Think positive An interpretable neural network fo.pdf;/home/oscar/snap/zotero-snap/common/Zotero/storage/GBDNMV9S/S0893608022001125.html}
+}
+
+@article{smilkovSmoothGradRemovingNoise,
+  title = {{{SmoothGrad}}: Removing Noise by Adding Noise},
+  author = {Smilkov, Daniel and Thorat, Nikhil and Kim, Been and Vi{\'e}gas, Fernanda and Wattenberg, Martin},
+  pages = {10},
+  abstract = {Explaining the output of a deep network remains a challenge. In the case of an image classifier, one type of explanation is to identify pixels that strongly influence the final decision. A starting point for this strategy is the gradient of the class score function with respect to the input image. This gradient can be interpreted as a sensitivity map, and there are several techniques that elaborate on this basic idea. This paper makes two contributions: it introduces SMOOTHGRAD, a simple method that can help visually sharpen gradient-based sensitivity maps, and it discusses lessons in the visualization of these maps. We publish the code for our experiments and a website with our results.},
+  langid = {english},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/PN4IYK9X/Smilkov et al. - SmoothGrad removing noise by adding noise.pdf}
+}
+
+@misc{springenbergStrivingSimplicityAll2015,
+  title = {Striving for {{Simplicity}}: {{The All Convolutional Net}}},
+  shorttitle = {Striving for {{Simplicity}}},
+  author = {Springenberg, Jost Tobias and Dosovitskiy, Alexey and Brox, Thomas and Riedmiller, Martin},
+  year = {2015},
+  month = apr,
+  number = {arXiv:1412.6806},
+  eprint = {1412.6806},
+  eprinttype = {arxiv},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.1412.6806},
+  abstract = {Most modern convolutional neural networks (CNNs) used for object recognition are built using the same principles: Alternating convolution and max-pooling layers followed by a small number of fully connected layers. We re-evaluate the state of the art for object recognition from small images with convolutional networks, questioning the necessity of different components in the pipeline. We find that max-pooling can simply be replaced by a convolutional layer with increased stride without loss in accuracy on several image recognition benchmarks. Following this finding -- and building on other recent work for finding simple network structures -- we propose a new architecture that consists solely of convolutional layers and yields competitive or state of the art performance on several object recognition datasets (CIFAR-10, CIFAR-100, ImageNet). To analyze the network we introduce a new variant of the "deconvolution approach" for visualizing features learned by CNNs, which can be applied to a broader range of network structures than existing approaches.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Computer Vision and Pattern Recognition,Computer Science - Machine Learning,Computer Science - Neural and Evolutionary Computing},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/KI9GBIHN/Springenberg et al. - 2015 - Striving for Simplicity The All Convolutional Net.pdf;/home/oscar/snap/zotero-snap/common/Zotero/storage/R4TMJUUM/1412.html}
+}
+
+@misc{springenbergStrivingSimplicityAll2015a,
+  title = {Striving for {{Simplicity}}: {{The All Convolutional Net}}},
+  shorttitle = {Striving for {{Simplicity}}},
+  author = {Springenberg, Jost Tobias and Dosovitskiy, Alexey and Brox, Thomas and Riedmiller, Martin},
+  year = {2015},
+  month = apr,
+  number = {arXiv:1412.6806},
+  eprint = {1412.6806},
+  eprinttype = {arxiv},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.1412.6806},
+  abstract = {Most modern convolutional neural networks (CNNs) used for object recognition are built using the same principles: Alternating convolution and max-pooling layers followed by a small number of fully connected layers. We re-evaluate the state of the art for object recognition from small images with convolutional networks, questioning the necessity of different components in the pipeline. We find that max-pooling can simply be replaced by a convolutional layer with increased stride without loss in accuracy on several image recognition benchmarks. Following this finding -- and building on other recent work for finding simple network structures -- we propose a new architecture that consists solely of convolutional layers and yields competitive or state of the art performance on several object recognition datasets (CIFAR-10, CIFAR-100, ImageNet). To analyze the network we introduce a new variant of the "deconvolution approach" for visualizing features learned by CNNs, which can be applied to a broader range of network structures than existing approaches.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Computer Vision and Pattern Recognition,Computer Science - Machine Learning,Computer Science - Neural and Evolutionary Computing},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/PTQ5MMT9/Springenberg et al. - 2015 - Striving for Simplicity The All Convolutional Net.pdf;/home/oscar/snap/zotero-snap/common/Zotero/storage/UJKBJYTU/1412.html}
+}
+
+@inproceedings{sundararajanAxiomaticAttributionDeep2017,
+  title = {Axiomatic {{Attribution}} for {{Deep Networks}}},
+  booktitle = {Proceedings of the 34th {{International Conference}} on {{Machine Learning}}},
+  author = {Sundararajan, Mukund and Taly, Ankur and Yan, Qiqi},
+  year = {2017},
+  month = jul,
+  pages = {3319--3328},
+  publisher = {{PMLR}},
+  issn = {2640-3498},
+  abstract = {We study the problem of attributing the prediction of a deep network to its input features, a problem previously studied by several other works. We identify two fundamental axioms\textemdash Sensitivity and Implementation Invariance that attribution methods ought to satisfy. We show that they are not satisfied by most known attribution methods, which we consider to be a fundamental weakness of those methods. We use the axioms to guide the design of a new attribution method called Integrated Gradients. Our method requires no modification to the original network and is extremely simple to implement; it just needs a few calls to the standard gradient operator. We apply this method to a couple of image models, a couple of text models and a chemistry model, demonstrating its ability to debug networks, to extract rules from a network, and to enable users to engage with models better.},
+  langid = {english},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/J9CJHJNA/Sundararajan et al. - 2017 - Axiomatic Attribution for Deep Networks.pdf}
+}
+
+@misc{teslaTeslaAIDay2021,
+  title = {Tesla {{AI Day}}},
+  author = {{Tesla}},
+  year = {2021},
+  month = aug
+}
+
+@inproceedings{vaswaniAttentionAllYou2017,
+  title = {Attention Is {{All}} You {{Need}}},
+  booktitle = {Advances in {{Neural Information Processing Systems}}},
+  author = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, {\L}ukasz and Polosukhin, Illia},
+  year = {2017},
+  volume = {30},
+  publisher = {{Curran Associates, Inc.}},
+  abstract = {The dominant sequence transduction models are based on complex recurrent orconvolutional neural networks in an encoder and decoder configuration. The best performing such models also connect the encoder and decoder through an attentionm echanisms.  We propose a novel, simple network architecture based solely onan attention mechanism, dispensing with recurrence and convolutions entirely.Experiments on two machine translation tasks show these models to be superiorin quality while being more parallelizable and requiring significantly less timeto train. Our single model with 165 million parameters, achieves 27.5 BLEU onEnglish-to-German translation, improving over the existing best ensemble result by over 1 BLEU. On English-to-French translation, we outperform the previoussingle state-of-the-art with model by 0.7 BLEU, achieving a BLEU score of 41.1.},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/XPS3RFE7/Vaswani et al. - 2017 - Attention is All you Need.pdf}
+}
+
+@inproceedings{zeilerVisualizingUnderstandingConvolutional2014,
+  title = {Visualizing and {{Understanding Convolutional Networks}}},
+  booktitle = {Computer {{Vision}} \textendash{} {{ECCV}} 2014},
+  author = {Zeiler, Matthew D. and Fergus, Rob},
+  editor = {Fleet, David and Pajdla, Tomas and Schiele, Bernt and Tuytelaars, Tinne},
+  year = {2014},
+  series = {Lecture {{Notes}} in {{Computer Science}}},
+  pages = {818--833},
+  publisher = {{Springer International Publishing}},
+  address = {{Cham}},
+  doi = {10.1007/978-3-319-10590-1_53},
+  abstract = {Large Convolutional Network models have recently demonstrated impressive classification performance on the ImageNet benchmark Krizhevsky et al. [18]. However there is no clear understanding of why they perform so well, or how they might be improved. In this paper we explore both issues. We introduce a novel visualization technique that gives insight into the function of intermediate feature layers and the operation of the classifier. Used in a diagnostic role, these visualizations allow us to find model architectures that outperform Krizhevsky et al on the ImageNet classification benchmark. We also perform an ablation study to discover the performance contribution from different model layers. We show our ImageNet model generalizes well to other datasets: when the softmax classifier is retrained, it convincingly beats the current state-of-the-art results on Caltech-101 and Caltech-256 datasets.},
+  isbn = {978-3-319-10590-1},
+  langid = {english},
+  keywords = {Convolutional Neural Network,Input Image,Pixel Space,Stochastic Gradient Descent,Training Image},
+  file = {/home/oscar/snap/zotero-snap/common/Zotero/storage/Q6IBMRLG/Zeiler and Fergus - 2014 - Visualizing and Understanding Convolutional Networ.pdf}
+}
+
+@article{zotero-9,
+  type = {Article}
+}
+
