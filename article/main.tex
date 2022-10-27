@@ -27,7 +27,7 @@
 \author{Oscar~Llorente,
         Jose~Portela,
 \thanks{O.Llorente is with Ericsson, e-mail: oscar.llorente.gonzalez@ericsson.com.}% <-this % stops a space
-\thanks{J. Doe and J. Doe are with Anonymous University.}% <-this % stops a space
+\thanks{J. Doe and Jane. Doe are with Anonymous University.}% <-this % stops a space
 \thanks{Manuscript received April 19, 2005; revised August 26, 2015.}}
 
 
@@ -80,7 +80,7 @@ In this section the model proposed will be explained. Here the structure propose
 
 First, it is important to take into account that the model has two different sources of data, the prices and the exogenous variables. Therefore, some modifications to the encoder architecture have been made to include that. The architecture can be observed in Figure~\ref{fig: model architecture}.
 
-The model has four main structures, two types of Embeddings, a stack of Transformer Encoder and a final Multi-Layer Perceptron for making the final predictions. Due to the importance of the Transformer Encoder, it can also be observed the structure of it in Figure~\ref{fig: encoder architecture}.
+The model has four main structures, two types of Embeddings, a stack of Transformer Encoders and a final Multi-Layer Perceptron for making the final predictions. Due to the importance of the Transformer Encoder, its structure can also be observed in Figure~\ref{fig: encoder architecture}.
 
 \begin{figure}
   \centering
@@ -99,9 +99,11 @@ The model has four main structures, two types of Embeddings, a stack of Transfor
   \caption{Model and Transformer Encoder Architectures}
 \end{figure}
 
-In this case, since the objective will be to predict the 24-hour price for the next day, each day with its 24 hour will be treated as a single unit.
+In this case, since the objective will be to predict the 24-hour price for the next day, each day with its 24 hours will be treated as a single unit. Therefore, following an analogy with NLP, the original domain for this type of model, each day can be considered as a word.
 
-Next, it is also important to clarify the Embeddings layers. Even they are not really Embeddings as in NLP, this name has been adopted following the example from language models. These layers are in fact a Linear layer and a ReLU non-linearity to transform the dimension of the inputs.
+Next, it is also important to clarify the Embeddings layers. Even they are not really Embeddings as in NLP, this name has been adopted following the example from language models. These layers are in fact a Linear layer and a ReLU non-linearity to transform the dimension of the inputs. Then, this layers will transform each word in a higher order vector. It is also important to take into account that there are two Embeddings layers, one for prices and another for exogenous variables. 
+
+At this point is important to clarify that not all the elements will be passed on to the Transformer layers stack. Only the prices shifted one place to the right (since the objective is to predict the next 24h only looking at the past) will be introduced in the Transformer Encoders layers. Then, the output of the stack will be concatenated with the embeddings of the exogenous variables (without any shift) and introduced in a multilayer perceptron to make the final prediction.
 
 
 \section{Case Study}
