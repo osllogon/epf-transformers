@@ -6,12 +6,12 @@ from transformers.optimization import Adafactor, AdafactorSchedule
 
 # other libraries
 import os
+from typing import Optional
 
 # own modules
 from src.utils import set_seed, load_data
-from src.models import BaseElectricTransformer, BaseDailyElectricTransformer, ExtendedElectricTransformer, \
-    CompleteElectricTransformer, sMAPELoss
-from src.train_functions import train, test, test_and_recalibrate
+from src.models import BaseDailyElectricTransformer, sMAPELoss
+from src.train_functions import train, test
 
 # set device
 device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
@@ -23,7 +23,7 @@ set_seed(42)
 DATASETS_PATH = './data/epftoolbox'
 DATASET = 'FR'
 
-if __name__ == '__main__':
+def main() -> None:
     # check device
     print(device)
 
@@ -67,26 +67,17 @@ if __name__ == '__main__':
     writer = SummaryWriter(f'./runs/epftoolbox/{DATASET}/{name}')
 
     # define model
-    if model_class == 'base':
-        model = BaseElectricTransformer(embedding_dim=embedding_dim, num_heads=num_heads,
-                                        dim_feedforward=dim_feedforward, num_layers=num_layers,
-                                        normalize_first=normalize_first, dropout=dropout,
-                                        activation=activation).to(device)
-    elif model_class == 'base_daily':
+    model: torch.nn.Module
+    if model_class == 'base_daily':
         model = BaseDailyElectricTransformer(embedding_dim=embedding_dim, num_heads=num_heads,
                                              dim_feedforward=dim_feedforward, num_layers=num_layers,
                                              normalize_first=normalize_first, dropout=dropout,
                                              activation=activation).to(device)
-    elif model_class == 'extended':
-        model = ExtendedElectricTransformer(embedding_dim=embedding_dim, num_heads=num_heads,
-                                            dim_feedforward=dim_feedforward, num_layers=num_layers).to(device)
-    elif model_class == 'complete':
-        model = CompleteElectricTransformer(embedding_dim=embedding_dim, num_heads=num_heads,
-                                            dim_feedforward=dim_feedforward, num_layers=num_layers).to(device)
     else:
         raise ValueError('Invalid model class name')
 
     # define loss
+    loss: torch.nn.Module
     if loss_name == 'mse':
         loss = torch.nn.MSELoss()
     elif loss_name == 'mae':
@@ -99,6 +90,7 @@ if __name__ == '__main__':
         raise ValueError('Invalid loss name')
 
     # define optimizer
+    optimizer: torch.optim.Optimizer
     if optimizer_name == 'adamw':
         optimizer = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=weight_decay)
     elif optimizer_name == 'adam':
@@ -117,6 +109,7 @@ if __name__ == '__main__':
         raise ValueError('Invalid optimizer name')
 
     # define scheduler
+    scheduler: Optional[torch.optim.lr_scheduler._LRScheduler]
     if scheduler_name is not None:
         scheduler_name_pieces = scheduler_name.split('_')
         if scheduler_name_pieces[0] == 'steplr':
@@ -169,12 +162,12 @@ if __name__ == '__main__':
         best_model_path = f'./best_models/epftoolbox/{DATASET}'
 
         # run test function
-        test(df_train, df_test, test_dataloader, model_class, model_path, compare_paths, save_model, best_model_path, name)
-
-    elif exec_mode == 'test_and_recalibrate':
-        # run test and recalibrate function
-        test_and_recalibrate(df_train, df_test, test_dataloader, sequence_length, model_path, model_class, mean, std,
-                             loss, optimizer, clip_gradients, compare_paths)
+        test(df_train, df_test, test_dataloader, model_class, model_path, compare_paths, save_model, best_model_path, 
+             name)
 
     else:
         raise ValueError('Invalid execution mode')
+    
+    
+if __name__ == '__main__':
+    main()
