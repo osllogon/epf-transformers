@@ -6,7 +6,7 @@ import pandas as pd
 from epftoolbox.data import read_data
 from epftoolbox.models import DNN
 from epftoolbox.models._dnn import _build_and_split_XYs
-from epftoolbox.evaluation import MAE, RMSE, MAPE, sMAPE, DM
+from epftoolbox.evaluation import MAE, RMSE, sMAPE, DM
 
 # other imports
 import random
@@ -18,6 +18,17 @@ device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cp
 
 # static variables
 DATASETS_PATH = './data'
+
+
+def main() -> None:
+    # define datasets
+    datasets_names = ['NP', 'PJM', 'BE', 'FR', 'DE']
+
+    # compute results
+    benchmark_dnn_without_retrain(datasets_names, False)
+    benchmark_naive_daily_model(datasets_names)
+    final_results(datasets_names)
+    # draw_forecasts(datasets_names, 'visualizations')
 
 
 class ElectricDataset(Dataset):
@@ -222,7 +233,7 @@ def benchmark_dnn_without_retrain(datasets: list[str], last_year: bool = False) 
 
             # Recalibrating the model with the most up-to-date available data and making a prediction
             # for the next day
-            Yp = model.forecast_next_day(df=data_available, next_day_date=date)
+            Yp = forecast_next_day(model, df=data_available, next_day_date=date)
 
             # Saving the current prediction
             forecast.loc[date, :] = Yp
@@ -249,6 +260,56 @@ def benchmark_dnn_without_retrain(datasets: list[str], last_year: bool = False) 
     df.to_csv(f'./results/benchmarks/dnn_ensemble_without_retraining_last_year_{last_year}.csv')
 
     return None
+
+
+def forecast_next_day(model, df, next_day_date):
+    """Method that builds an easy-to-use interface for daily recalibration and forecasting of the DNN model
+    
+    The method receives a pandas dataframe ``df`` and a day ``next_day_date``. Then, it 
+    recalibrates the model using data up to the day before ``next_day_date`` and makes a prediction
+    for day ``next_day_date``.
+    
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        Dataframe of historical data containing prices and N exogenous inputs. The index of the 
+        dataframe should be dates with hourly frequency. The columns should have the following 
+        names ['Price', 'Exogenous 1', 'Exogenous 2', ...., 'Exogenous N']
+    next_day_date : TYPE
+        Date of the day-ahead
+    
+    Returns
+    -------
+    numpy.array
+        An array containing the predictions in the provided date
+    
+    """
+
+    # We define the new training dataset considering the last calibration_window years of data 
+    df_train = df.loc[:next_day_date - pd.Timedelta(hours=1)]
+    df_train = df_train.loc[next_day_date - pd.Timedelta(hours=model.calibration_window * 364 * 24):]
+
+    # We define the test dataset as the next day (they day of interest) plus the last two weeks
+    # in order to be able to build the necessary input features.
+    df_test = df.loc[next_day_date - pd.Timedelta(weeks=2):, :]
+
+    # Generating training, validation, and test input and outpus. For the test dataset,
+    # even though the dataframe contains 15 days of data (next day + last 2 weeks),
+    # we provide as parameter the date of interest so that Xtest and Ytest only reflect that
+    Xtrain, Ytrain, Xval, Yval, Xtest, _, _ = \
+        _build_and_split_XYs(dfTrain=df_train, features=model.best_hyperparameters, 
+                            shuffle_train=True, dfTest=df_test, date_test=next_day_date,
+                            data_augmentation=model.data_augmentation, 
+                            n_exogenous_inputs=len(df_train.columns) - 1)
+
+    # Normalizing the input and outputs if needed
+    Xtrain, Xval, Xtest, Ytrain, Yval = \
+        model._regularize_data(Xtrain=Xtrain, Xval=Xval, Xtest=Xtest, Ytrain=Ytrain, Yval=Yval)
+
+    # Recalibrating the neural network and extracting the prediction
+    Yp = model.predict(Xtest=Xtest)
+
+    return Yp
 
 
 @torch.no_grad()
@@ -459,11 +520,4 @@ def draw_forecasts(datasets: list[str], save_path: str, number_per_day: int = 2)
 
 
 if __name__ == '__main__':
-    # define datasets
-    datasets_names = ['NP', 'PJM', 'BE', 'FR', 'DE']
-
-    # compute results
-    # benchmark_dnn_without_retrain(datasets_names, False)
-    # benchmark_naive_daily_model(datasets_names)
-    final_results(datasets_names)
-    # draw_forecasts(datasets_names, 'visualizations')
+    main()
