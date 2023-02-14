@@ -9,13 +9,14 @@ device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cp
 
 class PositionalEncoding(torch.nn.Module):
 
+    @torch.no_grad()
     def __init__(self, d_model: int, dropout: float = 0.1, max_len: int = 5000):
         super().__init__()
         self.dropout = torch.nn.Dropout(p=dropout)
 
         position = torch.arange(max_len).unsqueeze(1)
         div_term = torch.exp(torch.arange(0, d_model, 2) * (-math.log(10000.0) / d_model))
-        self.pe: torch.Tensor = torch.zeros(max_len, 1, d_model)
+        self.pe: torch.Tensor = torch.nn.Parameter(torch.zeros(max_len, 1, d_model))
         self.pe[:, 0, 0::2] = torch.sin(position * div_term)
         self.pe[:, 0, 1::2] = torch.cos(position * div_term)
 

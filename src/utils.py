@@ -25,8 +25,8 @@ def main() -> None:
     datasets_names = ['NP', 'PJM', 'BE', 'FR', 'DE']
 
     # compute results
-    benchmark_dnn_without_retrain(datasets_names, False)
-    benchmark_naive_daily_model(datasets_names)
+    # benchmark_dnn_without_retrain(datasets_names, False)
+    # benchmark_naive_daily_model(datasets_names)
     final_results(datasets_names)
     # draw_forecasts(datasets_names, 'visualizations')
 
@@ -193,7 +193,7 @@ def benchmark_dnn_without_retrain(datasets: list[str], last_year: bool = False) 
 
     for dataset in datasets:
 
-        df_train, df_test = read_data(f'./data/epftoolbox/{dataset}', dataset=dataset, years_test=2,
+        df_train, df_test = read_data(f'./data/{dataset}', dataset=dataset, years_test=2,
                                       begin_test_date=None, end_test_date=None)
 
         model = DNN(

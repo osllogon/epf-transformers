@@ -20,8 +20,8 @@ device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cp
 set_seed(42)
 
 # static variables
-DATASETS_PATH = './data/epftoolbox'
-DATASET = 'FR'
+DATASETS_PATH = './data'
+DATASET = 'PJM'
 
 def main() -> None:
     # check device
@@ -29,25 +29,25 @@ def main() -> None:
 
     # execution mode
     exec_mode = 'test'
+    save_model = True
 
     # hyperparameters
     epochs = 100
     model_class = 'base_daily'
     sequence_length = 336
-    lr = 1e-5
-    num_layers = 6
-    num_heads = 8
-    embedding_dim = 512
-    dim_feedforward = 1024
+    lr = 1e-4
+    num_layers = 4
+    num_heads = 4
+    embedding_dim = 128
+    dim_feedforward = 1048
     normalize_first = False
-    dropout = 0.2
+    dropout = 0.2 
     activation = 'relu'
     loss_name = 'mae'
     optimizer_name = 'adamw'
     weight_decay = 1e-2
-    clip_gradients = 0.25
-    scheduler_name = 'steplr_50_0.2'
-    save_model = True
+    clip_gradients = 0.1
+    scheduler_name = 'steplr_70_0.1'
 
     # load data
     train_dataloader, val_dataloader, test_dataloader, mean, std = load_data(DATASET, f'{DATASETS_PATH}/{DATASET}',
@@ -127,18 +127,18 @@ def main() -> None:
         scheduler = None
 
     # create dirs is they do not exist
-    if not os.path.isdir(f'./models/epftoolbox/{DATASET}'):
-        os.makedirs(f'./models/epftoolbox/{DATASET}')
-    if not os.path.isdir(f'./best_models/epftoolbox/{DATASET}'):
-        os.makedirs(f'./best_models/epftoolbox/{DATASET}')
+    if not os.path.isdir(f'./models/{DATASET}'):
+        os.makedirs(f'./models/{DATASET}')
+    if not os.path.isdir(f'./best_models/{DATASET}'):
+        os.makedirs(f'./best_models/{DATASET}')
 
     # define path for saving models and loading models
-    model_path = f'./models/epftoolbox/{DATASET}/{name}.pt'
+    model_path = f'./models/{DATASET}/{name}.pt'
 
     # define path for the other model for comparing
     compare_paths = [
-        f'./results/epftoolbox/forecasts/dnn_ensemble_without_retraining_last_year_False/{DATASET}.csv',
-        f'./results/epftoolbox/forecasts/naive_daily_model/{DATASET}.csv'
+        f'./results/forecasts/dnn_ensemble_without_retraining_last_year_False/{DATASET}.csv',
+        f'./results/forecasts/naive_daily_model/{DATASET}.csv'
     ]
 
     if exec_mode == 'train':
@@ -148,18 +148,18 @@ def main() -> None:
 
     elif exec_mode == 'test':
         # create dir if it does not exist
-        if not os.path.isdir(f'./best_models/epftoolbox/{DATASET}'):
-            os.makedirs(f'./best_models/epftoolbox/{DATASET}')
+        if not os.path.isdir(f'./best_models/{DATASET}'):
+            os.makedirs(f'./best_models/{DATASET}')
 
         # delete past best model
         if save_model:
-            files = os.listdir(f'./best_models/epftoolbox/{DATASET}')
+            files = os.listdir(f'./best_models/{DATASET}')
             if len(files) != 0:
                 for file in files:
-                    os.remove(f'./best_models/epftoolbox/{DATASET}/{file}')
+                    os.remove(f'./best_models/{DATASET}/{file}')
 
         # define new path for best model
-        best_model_path = f'./best_models/epftoolbox/{DATASET}'
+        best_model_path = f'./best_models/{DATASET}'
 
         # run test function
         test(df_train, df_test, test_dataloader, model_class, model_path, compare_paths, save_model, best_model_path, 

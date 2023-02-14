@@ -9,15 +9,12 @@ from epftoolbox.evaluation import MAE, RMSE, MAPE, sMAPE, DM
 # other libraries
 from typing import Optional
 
-# own modules
-from src.utils import ElectricDataset
-
 
 @torch.enable_grad()
 def train(train_data: DataLoader, val_data: DataLoader, model: torch.nn.Module, model_class: str,
           mean: float, std: float, loss: torch.nn.Module, optimizer: torch.optim.Optimizer, 
           scheduler: Optional[torch.optim.lr_scheduler._LRScheduler],
-          clip_gradients: float, epochs: int, writer: SummaryWriter, save_path: str) -> None:
+          clip_gradients: Optional[float], epochs: int, writer: SummaryWriter, save_path: str) -> None:
 
     for epoch in range(epochs):
 
