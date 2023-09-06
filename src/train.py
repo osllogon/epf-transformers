@@ -23,7 +23,7 @@ set_seed(42)
 
 # static variables
 DATASETS_PATH: str = "data"
-DATASET: str = "PJM"
+DATASET: str = "NP"
 
 
 def main() -> None:
@@ -41,8 +41,8 @@ def main() -> None:
     print(device)
 
     # execution mode
-    exec_mode: Literal["train", "test"] = "train"
-    save_model = False
+    exec_mode: Literal["train", "test"] = "test"
+    save_model = True
 
     # hyperparameters
     epochs = 100

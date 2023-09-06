@@ -356,3 +356,7 @@ def final_results(datasets: Tuple[str, ...]) -> None:
     df.to_csv(f"results/results.csv")
 
     return None
+
+
+if __name__ == "__main__":
+    main()
