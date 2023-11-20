@@ -30,6 +30,7 @@
 /runs/
 /data/
 /models/
+/results/
 /epftoolbox/
 .vscode/
 __pycache__/
