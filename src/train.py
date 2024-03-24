@@ -23,7 +23,6 @@ set_seed(42)
 
 # static variables
 DATASETS_PATH: str = "data"
-DATASET: str = "NP"
 
 
 def main() -> None:
@@ -37,11 +36,9 @@ def main() -> None:
         ValueError: Invalid execution mode
     """
 
-    # check device
-    print(device)
-
-    # execution mode
-    exec_mode: Literal["train", "test"] = "test"
+    # variables
+    dataset: Literal["NP", "PJM", "FR", "BE", "DE"] = "NP"
+    exec_mode: Literal["train", "test"] = "train"
     save_model = True
 
     # hyperparameters
@@ -60,16 +57,19 @@ def main() -> None:
     weight_decay = 1e-2
     clip_gradients = 0.1
     scheduler_name = "steplr_70_0.1"
+    
+    # check device
+    print(device)
 
     # load data
     train_dataloader, val_dataloader, test_dataloader, mean, std = load_data(
-        DATASET,
-        f"{DATASETS_PATH}/{DATASET}",
+        dataset,
+        f"{DATASETS_PATH}/{dataset}",
         sequence_length=sequence_length,
         batch_size=128,
     )
     df_train, df_test = read_data(
-        dataset=DATASET, path=f"{DATASETS_PATH}/{DATASET}", years_test=2
+        dataset=dataset, path=f"{DATASETS_PATH}/{dataset}", years_test=2
     )
     means = {}
     stds = {}
@@ -83,7 +83,7 @@ def main() -> None:
         f"{sequence_length}_{normalize_first}_d_{dropout}_a_{activation}_l_{loss_name}_o_{optimizer_name}_"
         f"lr_{lr}_wd_{weight_decay}_cg_{clip_gradients}_s_{scheduler_name}_e_{epochs}"
     )
-    writer: SummaryWriter = SummaryWriter(f"runs/{DATASET}/{name}")
+    writer: SummaryWriter = SummaryWriter(f"runs/{dataset}/{name}")
 
     # define model
     model: torch.nn.Module = BaseDailyElectricTransformer(
@@ -173,18 +173,18 @@ def main() -> None:
         scheduler = None
 
     # create dirs is they do not exist
-    if not os.path.isdir(f"models/{DATASET}"):
-        os.makedirs(f"models/{DATASET}")
-    if not os.path.isdir(f"best_models/{DATASET}"):
-        os.makedirs(f"best_models/{DATASET}")
+    if not os.path.isdir(f"models/{dataset}"):
+        os.makedirs(f"models/{dataset}")
+    if not os.path.isdir(f"best_models/{dataset}"):
+        os.makedirs(f"best_models/{dataset}")
 
     # define path for saving models and loading models
-    model_path: str = f"models/{DATASET}/{name}.pt"
+    model_path: str = f"models/{dataset}/{name}.pt"
 
     # define path for the other model for comparing
     compare_paths: List[str] = [
-        f"results/forecasts/dnn_ensemble_without_retraining_last_year_False/{DATASET}.csv",
-        f"results/forecasts/naive_daily_model/{DATASET}.csv",
+        f"results/forecasts/dnn_ensemble_without_retraining_last_year_False/{dataset}.csv",
+        f"results/forecasts/naive_daily_model/{dataset}.csv",
     ]
 
     if exec_mode == "train":
@@ -206,18 +206,18 @@ def main() -> None:
 
     elif exec_mode == "test":
         # create dir if it does not exist
-        if not os.path.isdir(f"best_models/{DATASET}"):
-            os.makedirs(f"best_models/{DATASET}")
+        if not os.path.isdir(f"best_models/{dataset}"):
+            os.makedirs(f"best_models/{dataset}")
 
         # delete past best model
         if save_model:
-            files = os.listdir(f"best_models/{DATASET}")
+            files = os.listdir(f"best_models/{dataset}")
             if len(files) != 0:
                 for file in files:
-                    os.remove(f"best_models/{DATASET}/{file}")
+                    os.remove(f"best_models/{dataset}/{file}")
 
         # define new path for best model
-        best_model_path: str = f"best_models/{DATASET}"
+        best_model_path: str = f"best_models/{dataset}"
 
         # run test function
         test(
