@@ -30,6 +30,9 @@
 /runs/
 /data/
 /models/
+/best_models/
+/results/
 /epftoolbox/
 .vscode/
 __pycache__/
+/visualizations/
