@@ -1,10 +1,6 @@
 # A Transformer approach for Electricity Price Forecasting
 
-This is the official implementation of [A Transformer approach for Electricity Price Forecasting]():
-
-```
-
-```
+This is the official implementation of [A Transformer approach for Electricity Price Forecasting](https://arxiv.org/abs/2403.16108).
 
 In this research a Transformer model for Electricity Price Forecasting (EPF) is presented and compared against the state-of-the-art models following the open-source library epftoolbox to enhance reproducibility and transparency in EPF research.
 
@@ -56,9 +52,16 @@ pip install .
 
 ## Cite
 
-Please cite our [paper]() if you find it useful:
+Please cite our [paper](https://arxiv.org/abs/2403.16108) if you find it useful:
 
 
 ```
-
+@misc{gonzalez2024transformer,
+      title={A Transformer approach for Electricity Price Forecasting}, 
+      author={Oscar Llorente Gonzalez and Jose Portela},
+      year={2024},
+      eprint={2403.16108},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
 ```

@@ -57,7 +57,7 @@ def main() -> None:
     weight_decay = 1e-2
     clip_gradients = 0.1
     scheduler_name = "steplr_70_0.1"
-    
+
     # check device
     print(device)
 
