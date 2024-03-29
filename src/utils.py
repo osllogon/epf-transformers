@@ -101,6 +101,16 @@ def load_data(
         stds of price
     """
 
+    # create dir if it does not exist
+    if not os.path.exists(save_path):
+        os.makedirs(save_path)
+
+    # download dataset
+    url_dir: str = "https://zenodo.org/records/4624805/files/"
+    data: pd.DataFrame = pd.read_csv(url_dir + dataset_option + ".csv", index_col=0)
+    file_path: str = os.path.join(save_path, dataset_option + ".csv")
+    data.to_csv(file_path)
+
     # create initial datasets
     df_train_val: pd.DataFrame
     df_test: pd.DataFrame

@@ -37,7 +37,7 @@ def main() -> None:
     """
 
     # variables
-    dataset: Literal["NP", "PJM", "FR", "BE", "DE"] = "NP"
+    dataset: Literal["NP", "PJM", "FR", "BE", "DE"] = "FR"
     exec_mode: Literal["train", "test"] = "train"
     save_model = True
 
